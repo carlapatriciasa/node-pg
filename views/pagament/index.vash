@@ -1,0 +1,47 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+    <style>
+      .h-opcao {
+        width: 100px;
+      }
+    </style>
+    <h1>@model.title</h1>
+    <p>
+        <a href="/pagament/cartao" class="btn btn-primary">Novo cadastro</a>
+    </p>
+  
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th class="h-tipo">Tipo</th>
+          <th class="h-nome">Nome</th>
+          <th class="h-email">Email</th>
+          <th class="h-cpf">CPF</th>
+          <th class="h-numero do cartao">Numero do Cartao</th>
+          <th class="h-validade do cartao">Validade do Cartao</th>
+          <th class="h-opcao"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @model.veiculos.forEach(function(v){
+          <tr>
+            <td>@v.cart_tipo</td>
+            <td>@v.cart_nome</td>
+            <td>@v.cli_email</td>
+            <td>@v.cart_cpf</td>
+            <td>@v.cart_num_cartao</td>
+            <td>@v.cart_dt_validade</td>
+            <td>
+              <a href="/pagament/cartao/@v.cart_codigo" class="btn btn-sm btn-success">
+                <span class="ion-edit"></span>
+              </a>
+            </td>
+          </tr>
+        })
+      </tbody>
+    </table>
+  
+  
+    }) @html.append('scriptsjs', function(){
+  
+    }) })
+  

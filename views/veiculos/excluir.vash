@@ -1,0 +1,19 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+  <h1>@model.title</h1>
+
+   <h2>Deseja realmente excluir o veículo:</h2>
+   <ul>
+     <li>Tipo: @model.veiculo.vei_tipo</li>
+     <li>Marca: @model.veiculo.vei_marca</li>
+     <li>Modelo: @model.veiculo.vei_modelo</li>
+     <li>Placa: @model.veiculo.vei_placa</li>
+   </ul>
+
+   <form action="/veiculos/excluir/" method="POST">
+    <input type="hidden" name="vei_codigo" value="@model.veiculo.vei_codigo" />
+    <button type="submit" class="btn btn-danger">Confirmar (Perigo!)</button>
+  </form>
+  <a href="/veiculos/" class="btn btn-default">Voltar</a>
+
+  }) @html.append('scriptsjs', function(){
+  }) })

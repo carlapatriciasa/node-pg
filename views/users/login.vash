@@ -1,0 +1,38 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<h1>@model.title</h1>
+
+@if(model.error) {
+<div class="alert alert-danger" role="alert">
+  <span class="oi oi-warning" title="Warning Icon" aria-hidden="true"></span> @model.error
+</div>
+}
+
+<form action="login" method="POST" data-validate>
+  <div class="form-group">
+    <label for="cli_email">Email address</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <span class="ion-person"></span>
+      </div>
+      <input type="email" class="form-control" name="cli_email" id="cli_email" placeholder="digite seu email" value="" required autofocus/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cli_senha">Password</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <span class="ion-locked"></span>
+      </div>
+      <input type="password" class="form-control" name="cli_senha" id="cli_senha" placeholder="Senha" value="" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+  <a href="/users/cadastro" class="btn btn-success">Cadastre-se </a>
+</form>
+}) @html.append('scriptsjs', function(){
+<script src="/javascripts/validate-options.js"></script>
+<script>
+  var validateOptions = getOptions()
+  validate.init(validateOptions)
+</script>
+}) })

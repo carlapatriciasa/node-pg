@@ -1,0 +1,56 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<h1>@model.title</h1>
+
+@if(model.error) {
+<div class="alert alert-danger" role="alert">
+  <span class="oi oi-warning" title="Warning Icon" aria-hidden="true"></span> @model.error
+</div>
+}
+
+<form action="/pagament/cartao" method="POST" data-validate>
+  @if (model.pagament.cart_codigo) {
+  <div class="form-group">
+    <label for="cart_codigo">Cógido do cartao</label>
+    <input type="text" class="form-control" id="cart_codigo" name="cart_codigo" readonly required value="@model.pagament.cart_codigo"
+    />
+  </div>
+  }
+
+  <div class="form-group">
+    <label for="cart_tipo">Tipo</label>
+    <select class="form-control" id="cart_tipo" name="cart_tipo" value="@model.pagament.cart_tipo">
+      <option value="marstercard">marstercard</option>
+      <option value="visa">visa</option>
+      <option value="elo">elo</option>
+      <option value="hypercard">hypercard</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="cart_nome">Nome</label>
+    <input type="text" class="form-control" id="cart_nome" placeholder="Nome" name="cart_nome" required value="@model.pagament.cart_nome">
+  </div>
+  <div class="form-group">
+    <label for="cart_cpf">CPF</label>
+    <input type="text" class="form-control" id="cart_cpf" placeholder="CPF" name="cart_cpf" required value="@model.pagament.cart_cpf">
+  </div>
+  <div class="form-group">
+    <label for="cart_num_cartao">Numero do Cartao</label>
+    <input type="text" class="form-control" id="cart_num_cartao" placeholder="Numero do Cartao" name="cart_num_cartao" required
+      value="@model.pagament.cart_num_cartao">
+  </div>
+  <div class="form-group">
+    <label for="cart_valit">Validade do Cartao</label>
+    <input type="text" class="form-control" id="cart_valit" placeholder="Validade do Cartao" name="cart_valit" required value="@model.pagament.cart_valit">
+  </div>
+  <div class="form-group">
+    <label for="cli_email">E-mail</label>
+    <input type="text" class="form-control" id="cli_email" placeholder="E-mail" name="cli_email" required value="@model.pagament.cli_email">
+  </div>
+  <button type="submit" class="btn btn-primary">Gravar</button>
+</form>
+}) @html.append('scriptsjs', function(){
+<script src="/javascripts/validate-options.js"></script>
+<script>
+  var validateOptions = getOptions()
+  validate.init(validateOptions)
+</script> }) })

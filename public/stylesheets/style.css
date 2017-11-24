@@ -1,0 +1,27 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+#main-container {
+  margin-top: 10px;
+}
+
+/**
+ * Form Validation Errors
+ */
+ .error {
+	border-color: red;
+}
+
+.error-message {
+	color: red;
+  font-style: italic;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+}

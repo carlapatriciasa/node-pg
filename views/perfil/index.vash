@@ -1,0 +1,24 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<h1>@model.title</h1>
+
+<style>
+</style>
+
+<form action="index" method="POST" data-validate>
+    <div class="form-group">
+        <label for="cli_email">Email</label>
+        <input type="text" class="form-control" id="cli_email" placeholder="Enter email" name="cli_email" value="@model.perfil.cli_email">
+    </div>
+    <div class="form-group">
+        <label for="cli_nome">Nome</label>
+        <input type="text" class="form-control" id="cli_nome" placeholder="Enter email" name="cli_nome" value="@model.perfil.cli_nome">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gravar!</button>
+</form>
+}) @html.append('scriptsjs', function(){
+<script src="/javascripts/validate-options.js"></script>
+<script>
+    var validateOptions = getOptions()
+    validate.init(validateOptions)
+</script> }) })

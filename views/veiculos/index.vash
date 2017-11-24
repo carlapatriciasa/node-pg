@@ -1,0 +1,46 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+  <style>
+    .h-opcao {
+      width: 100px;
+    }
+  </style>
+  <h1>@model.title</h1>
+  <p>
+      <a href="/veiculos/cadastro" class="btn btn-primary">Novo cadastro</a>
+  </p>
+
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th class="h-tipo">Tipo</th>
+        <th class="h-marca">Marca</th>
+        <th class="h-modelo">Modelo</th>
+        <th class="h-placa">Placa</th>
+        <th class="h-opcao"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @model.veiculos.forEach(function(v){
+        <tr>
+          <td>@v.vei_tipo</td>
+          <td>@v.vei_marca</td>
+          <td>@v.vei_modelo</td>
+          <td>@v.vei_placa</td>
+          <td>
+            <a href="/veiculos/cadastro/@v.vei_codigo" class="btn btn-sm btn-success">
+              <span class="ion-edit"></span>
+            </a>
+            &nbsp;
+            <a href="/veiculos/excluir/@v.vei_codigo"  class="btn btn-sm btn-danger">
+              <span class="ion-trash-a"></span>
+            </a>
+          </td>
+        </tr>
+      })
+    </tbody>
+  </table>
+
+
+  }) @html.append('scriptsjs', function(){
+
+  }) })

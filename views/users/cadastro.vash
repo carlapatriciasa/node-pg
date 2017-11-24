@@ -1,0 +1,43 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<h1>@model.title</h1>
+
+@if(model.error) {
+<div class="alert alert-danger" role="alert">
+  <span class="oi oi-warning" title="Warning Icon" aria-hidden="true"></span> @model.error
+</div>
+}
+
+<form action="cadastro" method="POST" data-validate>
+
+  <div class="form-group">
+    <label for="cli_nome">Nome Completo</label>
+    <input type="text" class="form-control" name="cli_nome" id="cli_nome" placeholder="Nome Completo" value="@model.user.cli_nome"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="cli_email">E-Mail</label>
+    <div class="input-group">
+      <input type="email" class="form-control" name="cli_email" id="cli_email" placeholder="E-mail" value="@model.user.cli_email" required/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cli_senha">Senha</label>
+    <div class="input-group">
+      <input type="password" class="form-control" name="cli_senha" id="cli_senha" placeholder="Senha" value="@model.user.cli_senha" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmacao_senha">Confirmar Senha</label>
+    <div class="input-group">
+      <input type="password" class="form-control" name="confirmacao_senha" id="confirmacao_senha" placeholder=" Confirme a Senha" value="@model.user.confirmacao_senha" required/>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Confirmar o registro!</button>
+</form>
+}) @html.append('scriptsjs', function(){
+<script src="/javascripts/validate-options.js"></script>
+<script>
+  var validateOptions = getOptions()
+  validate.init(validateOptions)
+</script>
+}) })

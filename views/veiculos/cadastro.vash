@@ -1,0 +1,45 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<h1>@model.title</h1>
+
+@if(model.error) {
+<div class="alert alert-danger" role="alert">
+  <span class="oi oi-warning" title="Warning Icon" aria-hidden="true"></span> @model.error
+</div>
+}
+
+<form action="/veiculos/cadastro" method="POST" data-validate>
+  @if (model.veiculo.vei_codigo) {
+  <div class="form-group">
+    <label for="vei_codigo">Cógido do Veículo</label>
+    <input type="text" class="form-control" id="vei_codigo" name="vei_codigo" readonly required value="@model.veiculo.vei_codigo"
+    />
+  </div>
+  }
+  <div class="form-group">
+    <label for="vei_tipo">Tipo</label>
+    <select class="form-control" id="vei_tipo" name="vei_tipo" value="@model.veiculo.vei_tipo">
+      <option value="Carro">Carro</option>
+      <option value="Moto">Moto</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="vei_marca">Marca</label>
+    <input type="text" class="form-control" id="vei_marca" placeholder="Marca" name="vei_marca" required value="@model.veiculo.vei_marca">
+  </div>
+  <div class="form-group">
+    <label for="vei_modelo">Modelo</label>
+    <input type="text" class="form-control" id="vei_modelo" placeholder="Modelo" name="vei_modelo" required value="@model.veiculo.vei_modelo">
+  </div>
+  <div class="form-group">
+    <label for="vei_placa">Placa</label>
+    <input type="text" class="form-control" id="vei_placa" placeholder="Placa" name="vei_placa" required value="@model.veiculo.vei_placa">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Gravar</button>
+</form>
+}) @html.append('scriptsjs', function(){
+<script src="/javascripts/validate-options.js"></script>
+<script>
+  var validateOptions = getOptions()
+  validate.init(validateOptions)
+</script> }) })

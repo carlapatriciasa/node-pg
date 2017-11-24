@@ -1,0 +1,11 @@
+@html.extend('layout', function(model) {
+  @html.block('content', function(model) {
+    <h1>Welcome <!-- to @model.title --></h1>
+    <p>@model.title</p>
+    <img src="https://goo.gl/WwniR7" alt="Estacione Facil" style="max-width: 100%; height: auto;">
+  })
+  @html.append('scriptsjs', function(){
+	})
+})
+
+
