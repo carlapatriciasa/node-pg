@@ -2,7 +2,7 @@
   @html.block('content', function(model) {
     <h1>Welcome <!-- to @model.title --></h1>
     <p>@model.title</p>
-    <img src="https://goo.gl/c8jQ3U" alt="Estacione Facil" style="max-width: 100%; height: auto;">
+    <img src="/images/fundo_logo.png" alt="Estacione Facil" style="max-width: 100%; height: auto;">
   })
   @html.append('scriptsjs', function(){
 	})

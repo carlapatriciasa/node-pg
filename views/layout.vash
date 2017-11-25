@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link href="/stylesheets/open-iconic-bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 
   <!-- Custom styles for this template -->
   @html.block('css')
