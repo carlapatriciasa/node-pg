@@ -1,0 +1,15 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+    <input id="text" type="text" value="" style="width:80%" /><br />
+    <div id="qrcode"></div>
+
+    <!-- <div id="qrcode"></div>
+    <script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script> -->
+}) }) @html.append('scriptsjs', function(){ }) })
+    
+
+
+
+
+

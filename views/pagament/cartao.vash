@@ -19,38 +19,44 @@
   <div class="form-group">
     <label for="cart_tipo">Tipo</label>
     <select class="form-control" id="cart_tipo" name="cart_tipo" value="@model.pagament.cart_tipo">
-      <option value="marstercard">marstercard</option>
-      <option value="visa">visa</option>
-      <option value="elo">elo</option>
-      <option value="hypercard">hypercard</option>
+      <option value="marstercard">Marstercard</option>
+      <option value="visa">Visa</option>
+      <option value="elo">Elo</option>
+      <option value="hypercard">Hypercard</option>
     </select>
   </div>
   <div class="form-group">
     <label for="cart_nome">Nome</label>
     <input type="text" class="form-control" id="cart_nome" placeholder="Nome" name="cart_nome" required value="@model.pagament.cart_nome">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="cart_cpf">CPF</label>
     <input type="text" class="form-control" id="cart_cpf" placeholder="CPF" name="cart_cpf" required value="@model.pagament.cart_cpf">
-  </div>
+  </div> -->
   <div class="form-group">
-    <label for="cart_num_cartao">Numero do Cartao</label>
-    <input type="text" class="form-control" id="cart_num_cartao" placeholder="Numero do Cartao" name="cart_num_cartao" required
+    <label for="cart_num_cartao">Numero Cartao</label>
+    <input type="text" class="form-control" id="cart_num_cartao" placeholder="Numero Cartao" name="cart_num_cartao" required
       value="@model.pagament.cart_num_cartao">
   </div>
   <div class="form-group">
-    <label for="cart_valit">Validade do Cartao</label>
-    <input type="text" class="form-control" id="cart_valit" placeholder="Validade do Cartao" name="cart_valit" required value="@model.pagament.cart_valit">
+    <label for="cart_dt_validade">Validade Cartao</label>
+    <input type="text" class="form-control" id="cart_dt_validade" placeholder="Validade Cartao" name="cart_dt_validade" required value="@model.pagament.cart_dt_validade">
   </div>
   <div class="form-group">
-    <label for="cli_email">E-mail</label>
-    <input type="text" class="form-control" id="cli_email" placeholder="E-mail" name="cli_email" required value="@model.pagament.cli_email">
+    <label for="cart_cod_seg">Codigo de Sagurança</label>
+    <input type="text" class="form-control" id="cart_cod_seg" placeholder="Codigo de Sagurança" name="cart_cod_seg" required value="@model.pagament.cart_cod_seg">
   </div>
-  <button type="submit" class="btn btn-primary">Gravar</button>
+  <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 }) @html.append('scriptsjs', function(){
 <script src="/javascripts/validate-options.js"></script>
 <script>
+  $(function(){
+    $('#cart_cpf').mask('999.999.999-99')
+    $('#cart_num_cartao').mask('9999 9999 9999 9999')
+    $('#cart_dt_validade').mask('99/9999')
+    $('#cart_cod_seg').mask('999')
+  })
   var validateOptions = getOptions()
   validate.init(validateOptions)
 </script> }) })

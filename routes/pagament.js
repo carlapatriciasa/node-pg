@@ -14,8 +14,8 @@ router.use(function (req, res, next) {
 router.get('/', async (req, res, next) => {
   var pagament = []
 
-  var sql = 'select * from cartao where cart_codigo = $1'
-  var param = [req.user.cart_codigo]
+  var sql = 'select * from cartao where cli_codigo = $1'
+  var param = [req.user.cli_codigo]
 
   var result = await db.query(sql, param)
 
@@ -60,12 +60,12 @@ router.post('/cartao/', async (req, res, next) => {
 
   if (v.cart_codigo && v.cart_codigo > 0) {
     // UPDATE DOS DADOS
-    sql = 'update cartao set cart_tipo = $1, cli_nome = $2, cart_cpf = $3, cart_num_cartao = $4, cart_dt_validade = $5, cli_email = $6  where cart_codigo = $7'
-    params = [v.cart_tipo, v.cli_nome, v.cart_cpf, v.cart_num_cartao, v.cart_codigo]
+    sql = 'update cartao set cart_tipo = $1, cart_nome = $3 cart_num_cartao = $4, cart_dt_validade = $5, cart_cod_seg = $6 where cart_codigo = $6'
+    params = [v.cart_tipo, v.cart_cpf, v.cart_nome, v.cart_num_cartao, v.cart_dt_validade, v.cart_codigo, v.cart_cod_seg]
   } else {
     // INSERT DOS DADOS
-    sql = 'insert into cartao (cart_tipo, cli_nome, cart_cpf, cart_num_cartao) values ($1, $2, $3, $4)'
-    params = [v.cart_tipo, v.cli_nome, v.cart_cpf, v.cart_num_cartao]
+    sql = 'insert into cartao (cart_tipo, cart_nome, cart_num_cartao, cart_dt_validade, cart_cod_seg, cli_codigo) values ($1, $2, $3, $4, $5, $6)'
+    params = [v.cart_tipo, v.cart_nome, v.cart_num_cartao, v.cart_dt_validade, v.cart_cod_seg, req.user.cli_codigo]
   }
 
   var result = await db.query(sql, params)

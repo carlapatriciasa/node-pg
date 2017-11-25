@@ -1,0 +1,33 @@
+@html.extend('layout', function(model) { @html.block('content', function(model) {
+<style>
+    #gmap_canvas img {
+        max-width: none!important;
+        background: none!important
+    }
+</style>
+<h1>@model.title</h1>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+<div style='overflow:hidden;height:700px;width:440px;'>
+    <div id='gmap_canvas' style='height:700px;width:440px;'></div>
+    <div>
+        <small>
+            <a href="http://embedgooglemaps.com">embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/
+                embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/ embedgooglemaps.com/pt/</a>
+        </small>
+    </div>
+    <div>
+        <small>
+            <a href="http://sparpedia.no/">Find out here</a>
+        </small>
+    </div>
+</div>
+@html.append('scriptsjs', function(){
+    <script type='text/javascript'>function init_map() {
+        var myOptions = { zoom: 15, center: new google.maps.LatLng(-23.4209995, -51.933055800000034), mapTypeId: google.maps.MapTypeId.ROADMAP };
+        map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+        marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(-23.4209995, -51.933055800000034) });
+        infowindow = new google.maps.InfoWindow({ content: '<strong>Mapa</strong><br>maringa,PR<br>' });
+        google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); });
+        infowindow.open(map, marker);
+    } google.maps.event.addDomListener(window, 'load', init_map);</script> })
+}) })
