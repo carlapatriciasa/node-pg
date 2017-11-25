@@ -135,7 +135,7 @@ body {
     line-height: 1.5;
     color: #fff;
     text-align: left;
-    background-color: #212529
+    background-color: #7fada9
 }
 
 [tabindex="-1"]:focus {
@@ -1849,6 +1849,12 @@ pre code {
     border-color: #32383e
 }
 
+.table .thead-greenish th {
+    color: #fff;
+    background-color: #588e95;
+    border-color: #588e95
+}
+
 .table .thead-light th {
     color: #495057;
     background-color: #e9ecef;
@@ -2433,14 +2439,14 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff
+    background-color: #588e95;
+    border-color: #588e95
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc
+    background-color: #689e95;
+    border-color: #689e95
 }
 
 .btn-primary.focus,

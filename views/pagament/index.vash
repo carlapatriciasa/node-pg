@@ -10,7 +10,7 @@
     </p>
   
     <table class="table table-striped table-hover">
-      <thead class="thead-dark">
+      <thead class="thead-greenish">
         <tr>
           <th class="h-tipo">Tipo</th>
           <th class="h-nome">Nome</th>
