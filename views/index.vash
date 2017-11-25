@@ -1,9 +1,7 @@
 @html.extend('layout', function(model) { 
     @html.block('content', function(model) {
 
-    <div id='gmap_canvas' style='overflow:hidden;position:fixed;height:550px;'></div>
-    <button type="button">Click Me!</button>
-    
+    <div id='gmap_canvas' style='overflow:hidden;position:fixed;height:550px;'></div>    
     <style>
         #gmap_canvas { height: 100% }
         #gmap_canvas img {
