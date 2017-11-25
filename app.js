@@ -44,6 +44,7 @@ var perfil = require('./routes/perfil')
 var veiculos = require('./routes/veiculos')
 var mapa = require('./routes/mapa')
 var pagament = require('./routes/pagament')
+var qrcode = require('./routes/qr-code')
 
 
 
@@ -54,6 +55,7 @@ app.use('/perfil', perfil)
 app.use('/veiculos', veiculos)
 app.use('/mapa', mapa)
 app.use('/pagament', pagament)
+app.use('/qr-code', qrcode)
 
 
 

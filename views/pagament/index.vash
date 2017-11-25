@@ -1,47 +1,36 @@
 @html.extend('layout', function(model) { @html.block('content', function(model) {
-    <style>
-      .h-opcao {
-        width: 100px;
-      }
-    </style>
-    <h1>@model.title</h1>
-    <p>
-        <a href="/pagament/cartao" class="btn btn-primary">Novo cadastro</a>
-    </p>
-  
-    <table class="table table-striped table-hover">
-      <thead class="thead-greenish">
-        <tr>
-          <th class="h-tipo">Tipo</th>
-          <th class="h-nome">Nome</th>
-          <th class="h-email">Email</th>
-          <th class="h-cpf">CPF</th>
-          <th class="h-numero do cartao">Numero do Cartao</th>
-          <th class="h-validade do cartao">Validade do Cartao</th>
-          <th class="h-opcao"></th>
-        </tr>
-      </thead>
-      <tbody>
-        @model.veiculos.forEach(function(v){
-          <tr>
-            <td>@v.cart_tipo</td>
-            <td>@v.cart_nome</td>
-            <td>@v.cli_email</td>
-            <td>@v.cart_cpf</td>
-            <td>@v.cart_num_cartao</td>
-            <td>@v.cart_dt_validade</td>
-            <td>
-              <a href="/pagament/cartao/@v.cart_codigo" class="btn btn-sm btn-success">
-                <span class="ion-edit"></span>
-              </a>
-            </td>
-          </tr>
-        })
-      </tbody>
-    </table>
-  
-  
-    }) @html.append('scriptsjs', function(){
-  
-    }) })
-  
+<style>
+  .h-opcao {
+    width: 100px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 15px !important;
+    padding: 0;
+  }
+
+  ul li {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<h1>@model.title</h1>
+<p>
+  <a href="/pagament/cartao" class="btn btn-info">Novo cadastro</a>
+</p>
+
+@model.pagament.forEach(function(v){
+<ul class="list-group">
+  <li class="list-group-item active">Tipo: @v.cart_tipo</li>
+  <li class="list-group-item">Nome: @v.cart_nome</li>
+  <li class="list-group-item">Número: @v.cart_num_cartao</li>
+  <li class="list-group-item">Validade: @v.cart_dt_validade</li>
+  <li class="list-group-item">
+    <a href="/pagament/cartao/@v.cart_codigo" class="btn btn-block btn-success">
+      <span class="ion-edit"></span> Editar
+    </a>
+  </li>
+</ul>
+}) }) @html.append('scriptsjs', function(){ }) })
